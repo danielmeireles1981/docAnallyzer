@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA Leitor de PDF</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>📄 DOCAnallyzer 📄</h1>
+
+        <div class="upload-section">
+            <label for="pdfFile" class="upload-label">Escolha um PDF:</label>
+            <input type="file" id="pdfFile">
+            <button onclick="uploadPDF()">📤 Enviar PDF</button>
+        </div>
+
+        <div class="question-section">
+            <input type="text" id="question" placeholder="Digite sua pergunta sobre o PDF">
+            <button onclick="askQuestion()">🤖 Perguntar</button>
+        </div>
+
+        <div class="response-box">
+            <h3>Resposta da IA:</h3>
+            <p id="response">...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
