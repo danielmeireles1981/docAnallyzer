@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>📚 Histórico de Perguntas</h2>
+
+  <form method="get" action="/historico/">
+    <label for="documento_id">Filtrar por ID do Documento:</label>
+    <input type="number" id="documento_id" name="documento_id" placeholder="Deixe em branco para ver tudo">
+    <button type="submit">Filtrar</button>
+  </form>
+
+  <form method="get" action="/reindexar/" style="margin-bottom: 1em;">
+    <button type="submit">🔁 Reindexar Todos os Documentos</button>
+  </form>
+
+  {% if mensagem %}
+    <p><strong>{{ mensagem }}</strong></p>
+  {% endif %}
+
+  {% if perguntas %}
+    <hr>
+    <ul>
+      {% for p in perguntas %}
+        <li>
+          <p><strong>ID:</strong> {{ p.id }} | <strong>Doc:</strong> {{ p.documento_id }} | <strong>Data:</strong> {{ p.data }}</p>
+          <p><strong>Pergunta:</strong> {{ p.pergunta }}</p>
+          <p><strong>Resposta:</strong> {{ p.resposta }}</p>
+          <p><strong>Modelo:</strong> {{ p.modelo_utilizado }}</p>
+          <hr>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>🔎 Nenhuma pergunta encontrada.</p>
+  {% endif %}
+{% endblock %}
